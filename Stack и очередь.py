@@ -77,3 +77,107 @@ if __name__=="__main__":
 		lst1.show_size()
 	except Exception as er:
 		print(er)
+
+		
+# class Drob():
+#     def __init__(self,num,denom):
+#         self.num=num
+#         self.denom=denom
+#
+#     # def sum(self,drob2):
+#     #     num1=self.num+self.denom*self.full
+#     #     num2=drob2.num+drob2.denom*drob2.full
+#     #     result_num=num1*drob2.denom+num2*self.denom
+#     #     result_denom=self.denom*drob2.denom
+#     #     result_full=result_num//result_denom
+#     #     result_num=result_num%result_denom
+#     #     print(result_full,"\t",result_num,"/",result_denom)
+#
+#     def show(self):
+#         print(self.num,"/",self.denom)
+#     #
+#     # def dif(self,drob2):
+#     #     num1 = self.num + self.denom * self.full
+#     #     num2 = drob2.num + drob2.denom * drob2.full
+#     #     result_num = num1 * drob2.denom - num2 * self.denom
+#     #     result_denom = self.denom * drob2.denom
+#     #     result_full = result_num // result_denom
+#     #     result_num = result_num % result_denom
+#     #     print(result_full, "\t", result_num, "/", result_denom)
+#     #
+#     # def mul(self,drob2):
+#     #     num1 = self.num + self.denom * self.full
+#     #     num2 = drob2.num + drob2.denom * drob2.full
+#     #     result_num = num1 * drob2.num
+#     #     result_denom = self.denom * drob2.denom
+#     #     result_full = result_num // result_denom
+#     #     result_num = result_num % result_denom
+#     #     print(result_full, "\t", result_num, "/", result_denom)
+#     #
+#     def __sub__(self, drob2):
+#         return Drob(
+#             (self.num*drob2.denom)-(drob2.num*self.denom),
+#             self.denom * drob2.denom
+#         )
+#
+#
+#     def __add__(self,drob2):
+#         return Drob(
+#             self.num*drob2.denom+drob2.num*self.denom,
+#             self.denom * drob2.denom
+#         )
+#
+#
+#     def __mul__(self, drob2):
+#         return Drob(
+#             self.num *drob2.num,
+#             self.denom * drob2.denom
+#         )
+#
+#
+#     def __truediv__(self, drob2):
+#         return Drob(
+#             self.num * drob2.denom,
+#             self.denom * drob2.num
+#         )
+#
+# num1=Drob(1,2)
+# num1.show()
+# num2=Drob(2,3)
+# num2.show()
+# (num1+num2).show()
+# (num1-num2).show()
+# (num1*num2).show()
+# (num1/num2).show()
+
+book_id=1
+class Book:
+    def __init__(self,name,author,publ):
+        global book_id
+        self.book={book_id:[name, author,publ]}
+        book_id+=1
+    def show(self):
+        print(self.book)
+class Library:
+    list=[]
+    def add(self, book):
+        self.list.append(book)
+
+    def show_all(self):
+        for i in range(len(self.list)):
+            self.list[i].show()
+
+    def remove(self,book):
+        return self.list.remove(book)
+
+
+book1=Book("a","B","acy")
+book2=Book("a","B","ac222")
+book1.show()
+book2.show()
+lb=Library()
+lb.add(book2)
+lb.add(book1)
+lb.show_all()
+lb.remove(book1)
+lb.show_all()
