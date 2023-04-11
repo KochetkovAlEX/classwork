@@ -1,4 +1,7 @@
+import math
 import random
+import time
+from abc import ABC,abstractmethod
 # class Stack():
 #     __count=0
 #     def __init__(self,size):
@@ -181,3 +184,138 @@ lb.add(book1)
 lb.show_all()
 lb.remove(book1)
 lb.show_all()
+
+
+
+# def check_time(f):
+#     def wrapper(list):
+#         start=time.time()
+#         f(list)
+#         end=time.time()-start
+#         print(end)
+#     return wrapper
+#
+#
+# @check_time
+# def foo1(array):
+#     for i in array:
+#         print(i, end=",")
+#     print()
+#
+# @check_time
+# def foo2(array):
+#     for i in range(0,len(array),2):
+#         print(array[i],end="|")
+#     print()
+#
+#
+# list=[random.randint(1,10) for x in range(100)]
+# foo1(list)
+# foo2(list)
+
+#
+# def f(foo):
+#     def wrapper(self):
+#         print(self.__hash__())
+#         foo(self)
+#
+#     return wrapper
+#
+#
+# class Student:
+#     def __init__(self, name, numb):
+#         self.name = name
+#         self.numb = numb
+#
+#     @f
+#     def show(self):
+#         print(self.name, self.numb)
+#
+#
+# st1 = Student("oleg", 123)
+# st1.show()
+
+#
+# class Figure(ABC):#импортируем абс-абстрактный метод
+#     @abstractmethod
+#     def getS(self):
+#         pass
+#
+#     @abstractmethod
+#     def draw(self):
+#         pass
+#
+# class Circle(Figure):
+#     def __init__(self,r):
+#         self.r=r
+#     def  getS(self):
+#        return math.pi*self.r**2
+#
+#     @staticmethod
+#     def draw():
+#         print("circle")
+#
+# class Rectangle(Figure):
+#     def __init__(self,w,h):
+#         self.h=h
+#         self.w=w
+#     def getS(self):
+#         return self.w*self.h
+#
+#     @staticmethod
+#     def draw():
+#         print("rectangle")
+#
+# fig1=Rectangle(2,3)
+# fig2=Circle(3)
+# fig1.draw()
+# print(fig2.getS())
+
+
+# count=0
+# class Student:
+#     def __init__(self,name):
+#         self.name=name
+#         Student.counter()
+#     @staticmethod
+#     def counter():
+#         global count
+#         count+=1
+# st1=Student("Oleg")
+# st2=Student("Alex")
+# st3=Student("Oleg3")
+# print(count)
+
+
+class Vegetable(ABC):
+
+    @staticmethod
+    def wash():
+        print("мою овощ")
+
+    @abstractmethod
+    def cook(self):
+        pass
+
+class Tomato(Vegetable):
+    def __init__(self,m):
+        self.m=m
+
+    def cook(self):
+        print("готовлю томат")
+
+class Cucumber(Vegetable):
+    def __init__(self,m):
+        self.m=m
+
+
+    def cook(self):
+        print("готовлю огурец")
+
+
+ov=Vegetable
+tom=Tomato(100)
+tom.cook()
+cuc=Cucumber(50)
+cuc.wash()
+
